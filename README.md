@@ -9,11 +9,18 @@ If the number of items in the textbox is less than or equal to 3 (e.g., 1, 2, or
 <br>
 https://yanhuowang.github.io/Coursera_AngularJS/checkIfTooMuch/index.html
 
-## 2. Check off shopping list
+## 2. Check Off Shopping List
 Display 2 lists, "To Buy" and "Already Bought".
 When the user clicks on the "Bought" button, its associated item should be removed from the "To Buy" list and appear in the "Already Bought" list.
 
-
 <br>
 https://yanhuowang.github.io/Coursera_AngularJS/checkOffShoppingList/index.html
+
+## 3. Narrow It Down
+For the user to search the descriptions of menu items. Then, given the list of matches of his search, give the user the ability to throw the items they for sure don't want off the list, thus narrowing it down to what they do want.
+
+<br>
+https://yanhuowang.github.io/Coursera_AngularJS/narrowItDown/index.html
+
+
 
