@@ -4,7 +4,7 @@
   angular.module('NarrowItDownApp', [])
   .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
-  .directive('foundItems', FoundItems)
+  // .directive('foundItems', FoundItems)
   .constant('BaseURL', 'https://davids-restaurant.herokuapp.com');
 
   NarrowItDownController.$inject = ['MenuSearchService'];
@@ -55,19 +55,19 @@
     };
   }
 
-  function FoundItems() {
-    var ddo = {
-      restrict: 'E',
-      templateUrl: '../foundItems.html',
-      scope: {
-        foundItems: '<',
-        onRemove: '&',
-      },
-      controller: NarrowItDownController,
-      controllerAs: 'narrowCtrl',
-      bindToController: true,
-    };
-    return ddo;
-  }
+  // function FoundItems() {
+  //   var ddo = {
+  //     restrict: 'E',
+  //     templateUrl: '../foundItems.html',
+  //     scope: {
+  //       foundItems: '<',
+  //       onRemove: '&',
+  //     },
+  //     controller: NarrowItDownController,
+  //     controllerAs: 'narrowCtrl',
+  //     bindToController: true,
+  //   };
+  //   return ddo;
+  // }
 
 })();
