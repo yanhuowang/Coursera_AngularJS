@@ -1,9 +1,10 @@
 (function () {
   'use strict';
-	angular.module('NarrowItDownApp', [])
-	.controller('NarrowItDownController', NarrowItDownController)
+  angular.module('NarrowItDownApp', [])
+  .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
   .directive('foundItems', FoundItems)
+  .controller('FoundItemsDirectiveController', FoundItemsDirectiveController)
   .constant('BaseURL', 'https://davids-restaurant.herokuapp.com');
 
   function FoundItems() {
@@ -13,25 +14,25 @@
         found: '<',
         onRemove: '&',
       },
-      // controller: FoundItemsDirectiveController,
-      // controllerAs: 'foundList',
-      // bindToController: true,
+      controller: 'FoundItemsDirectiveController',
+      controllerAs: 'foundList',
+      bindToController: true,
     };
 
     return ddo;
   }
 
-  // function FoundItemsDirectiveController() {
-  //   var foundList = this;
-  //   foundList.empty = function () {
-  //     if (foundList.foundItems.length == 0) {
-  //       return true;
-  //     }
-  //     else {
-  //       return false;
-  //     }
-  //   }
-  // }
+  function FoundItemsDirectiveController() {
+    var foundList = this;
+    foundList.empty = function () {
+      if (foundList.found.length == 0) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 
   MenuSearchService.$inject = ['$http', 'BaseURL'];
   function MenuSearchService($http, BaseURL) {
@@ -43,21 +44,20 @@
       })
       .then(function (result) {
         var found = [];
+        if (searchTerm.toString() == '') return found;
         var itemList = result.data.menu_items;
         for (var i = 0; i < itemList.length; i++) {
           if(itemList[i].description.includes(searchTerm)) {
             found.push(itemList[i]);
           }
         }
-        // For debug: 
-        // console.log(found);
         return found;
       });
     };
   }
 
   NarrowItDownController.$inject = ['MenuSearchService'];
-	function NarrowItDownController(MenuSearchService) {
+  function NarrowItDownController(MenuSearchService) {
     var narrowCtrl = this;
     narrowCtrl.query = '';
     narrowCtrl.found = [];
@@ -67,15 +67,13 @@
       promise.then(function (response) {
         narrowCtrl.found = response;
         // For debug: 
-        console.log(narrowCtrl.found);
+        // console.log(narrowCtrl.found);
       });
     };
 
     narrowCtrl.onRemove = function (index) {
       narrowCtrl.found.splice(index, 1);
-      // For debug: 
-        console.log("remove");
     }
-	}
+  }
 
 })();

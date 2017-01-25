@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="js/angular.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
   </head>
-  <body ng-controller='NarrowItDownController as narrowCtrl'>
+  <body ng-controller='NarrowItDownController as foundList'>
     <div class="container">
       <h1>Narrow Down Your Chinese Menu Choice</h1>
       <div class="form-group">
-        <input type="text" placeholder="search term" class="form-control" ng-model="narrowCtrl.query">
+        <input type="text" placeholder="search term" class="form-control" ng-model="foundList.query">
       </div>
       <div class="form-group narrow-button">
-        <button class="btn btn-primary" ng-click="narrowCtrl.getMatchedItems()">Narrow It Down For Me!</button>
+        <button class="btn btn-primary" ng-click="foundList.getMatchedItems()">Narrow It Down For Me!</button>
       </div>
     </div>
 
     <div class="container">
       <div>
-        <found-items found="narrowCtrl.found" on-remove="narrowCtrl.onRemove(index)"> </found-items>
+        <found-items found="foundList.found" on-remove="foundList.onRemove(index)"> </found-items>
       </div>
     </div>
   </body>
