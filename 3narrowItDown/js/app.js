@@ -3,8 +3,35 @@
 	angular.module('NarrowItDownApp', [])
 	.controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
-
+  .directive('foundItems', FoundItems)
   .constant('BaseURL', 'https://davids-restaurant.herokuapp.com');
+
+  function FoundItems() {
+    var ddo = {
+      templateUrl: 'foundItems.html',
+      scope: {
+        found: '<',
+        onRemove: '&',
+      },
+      // controller: FoundItemsDirectiveController,
+      // controllerAs: 'foundList',
+      // bindToController: true,
+    };
+
+    return ddo;
+  }
+
+  // function FoundItemsDirectiveController() {
+  //   var foundList = this;
+  //   foundList.empty = function () {
+  //     if (foundList.foundItems.length == 0) {
+  //       return true;
+  //     }
+  //     else {
+  //       return false;
+  //     }
+  //   }
+  // }
 
   MenuSearchService.$inject = ['$http', 'BaseURL'];
   function MenuSearchService($http, BaseURL) {
@@ -15,20 +42,16 @@
         url: (BaseURL + '/menu_items.json'),
       })
       .then(function (result) {
-        var foundItems = [];
+        var found = [];
         var itemList = result.data.menu_items;
         for (var i = 0; i < itemList.length; i++) {
           if(itemList[i].description.includes(searchTerm)) {
-            foundItems.push(itemList[i]);
+            found.push(itemList[i]);
           }
         }
-        // handle the not-found case
-        if(foundItems.toString() === "") {
-          foundItems=[{short_name:'Nothing Found', name:'',description:''}];
-        }
         // For debug: 
-        console.log(foundItems);
-        return foundItems;
+        // console.log(found);
+        return found;
       });
     };
   }
@@ -37,17 +60,21 @@
 	function NarrowItDownController(MenuSearchService) {
     var narrowCtrl = this;
     narrowCtrl.query = '';
-    narrowCtrl.foundItems = [];
+    narrowCtrl.found = [];
     
     narrowCtrl.getMatchedItems = function() {
       var promise = MenuSearchService.getMatchedMenuItems(narrowCtrl.query);
       promise.then(function (response) {
-        narrowCtrl.foundItems = response;
+        narrowCtrl.found = response;
+        // For debug: 
+        console.log(narrowCtrl.found);
       });
     };
 
     narrowCtrl.onRemove = function (index) {
-      narrowCtrl.foundItems.splice(index, 1);
+      narrowCtrl.found.splice(index, 1);
+      // For debug: 
+        console.log("remove");
     }
 	}
 
