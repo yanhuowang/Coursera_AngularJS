@@ -6,7 +6,7 @@ A front-end application that presents the user with a textbox where they can lis
 
 (Practice: Scopes, Dependency Injection.)
 
-https://yanhuowang.github.io/Coursera_AngularJS/checkIfTooMuch/index.html
+https://yanhuowang.github.io/Coursera_AngularJS/1checkIfTooMuch/index.html
 
 ## 2. Check Off Shopping List
 Display 2 lists, "To Buy" and "Already Bought".
@@ -14,14 +14,14 @@ When the user clicks on the "Bought" button, its associated item should be remov
 
 (Practice: Controller, Service.)
 
-https://yanhuowang.github.io/Coursera_AngularJS/checkOffShoppingList/index.html
+https://yanhuowang.github.io/Coursera_AngularJS/2checkOffShoppingList/index.html
 
 ## 3. Narrow It Down
 For the user to search the descriptions of menu items. Then, given the list of matches of his search, give the user the ability to throw the items they for sure don't want off the list, thus narrowing it down to what they do want.
 
 (Practice: Promises, $http Service, Custom Directives.)
 
-https://yanhuowang.github.io/Coursera_AngularJS/narrowItDown/index.html
+https://yanhuowang.github.io/Coursera_AngularJS/3narrowItDown/index.html
 
 
 
