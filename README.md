@@ -23,5 +23,11 @@ For the user to search the descriptions of menu items. Then, given the list of m
 
 https://yanhuowang.github.io/Coursera_AngularJS/3narrowItDown/index.html
 
+## 4. Menu App
+A single page application. When the user goes to / path in your application, a home screen should be shown. The home screen has a link to a list of categories of menu items in the restaurant. Clicking that link would take the user to the /categories view. The categories view lists all available categories of items on the menu. Each listing should be a link. Clicking that link takes the user to the /items view.
+
+(Practice: ui-router, $http Service)
+
+https://yanhuowang.github.io/Coursera_AngularJS/4menuApp/index.html
 
 
