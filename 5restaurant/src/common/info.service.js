@@ -9,12 +9,6 @@ InfoService.$inject = [];
 function InfoService() {
   var service = this;
 
-  service.getCategories = function () {
-    return $http.get(ApiPath + '/categories.json').then(function (response) {
-      return response.data;
-    });
-  };
-
   service.setInfo = function (info) {
     service.info = info;
   };
@@ -22,6 +16,6 @@ function InfoService() {
   service.getInfo = function() {
     return service.info;
   };
-};
+}
 
 })();
