@@ -30,4 +30,15 @@ A single page application. When the user goes to / path in your application, a h
 
 https://yanhuowang.github.io/Coursera_AngularJS/4menuApp/index.html
 
+## 5. Restaurant
+Add  "Sign up" and "My info" to the restaurant website.
+When the user clicks on the Sign Up button, they should be taken to a view that lets them "sign up" for the newsletter of the restaurant.
+
+When the user clicks on My Info button, they should be taken to another view where it shows them their "registered" information.
+
+(Practice: form-validation)
+
+https://yanhuowang.github.io/Coursera_AngularJS/5restaurant/index.html
+
+
 
